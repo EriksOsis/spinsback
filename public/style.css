@@ -1,0 +1,593 @@
+@font-face {
+    font-family: 'Halvar Breit Md';
+    src: url('./font/HalvarBreit-Md.eot');
+    src: local('Halvar Breitschrift Medium'), local('HalvarBreit-Md'),
+        url('./font/HalvarBreit-Md.eot?#iefix') format('embedded-opentype'),
+        url('./font/HalvarBreit-Md.woff2') format('woff2'),
+        url('./font/HalvarBreit-Md.woff') format('woff'),
+        url('./font/HalvarBreit-Md.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Halvar Breit Rg';
+    src: url('./font/HalvarBreit-Bd.eot');
+    src: local('Halvar Breitschrift Bold'), local('HalvarBreit-Bd'),
+        url('./font/HalvarBreit-Bd.eot?#iefix') format('embedded-opentype'),
+        url('./font/HalvarBreit-Bd.woff2') format('woff2'),
+        url('./font/HalvarBreit-Bd.woff') format('woff'),
+        url('./font/HalvarBreit-Bd.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Halvar Breit Rg';
+    src: url('./font/HalvarBreit-RgSlanted.eot');
+    src: local('Halvar Breitschrift Regular Slanted'), local('HalvarBreit-RgSlanted'),
+        url('./font/HalvarBreit-RgSlanted.eot?#iefix') format('embedded-opentype'),
+        url('./font/HalvarBreit-RgSlanted.woff2') format('woff2'),
+        url('./font/HalvarBreit-RgSlanted.woff') format('woff'),
+        url('./font/HalvarBreit-RgSlanted.ttf') format('truetype');
+    font-weight: normal;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Halvar Breit Md';
+    src: url('./font/HalvarBreit-MdSlanted.eot');
+    src: local('Halvar Breitschrift Medium Slanted'), local('HalvarBreit-MdSlanted'),
+        url('./font/HalvarBreit-MdSlanted.eot?#iefix') format('embedded-opentype'),
+        url('./font/HalvarBreit-MdSlanted.woff2') format('woff2'),
+        url('./font/HalvarBreit-MdSlanted.woff') format('woff'),
+        url('./font/HalvarBreit-MdSlanted.ttf') format('truetype');
+    font-weight: 500;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Halvar Breit Rg';
+    src: url('./font/HalvarBreit-BdSlanted.eot');
+    src: local('Halvar Breitschrift Bold Slanted'), local('HalvarBreit-BdSlanted'),
+        url('./font/HalvarBreit-BdSlanted.eot?#iefix') format('embedded-opentype'),
+        url('./font/HalvarBreit-BdSlanted.woff2') format('woff2'),
+        url('./font/HalvarBreit-BdSlanted.woff') format('woff'),
+        url('./font/HalvarBreit-BdSlanted.ttf') format('truetype');
+    font-weight: bold;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Halvar Breit Rg';
+    src: url('./font/HalvarBreit-Rg.eot');
+    src: local('Halvar Breitschrift Regular'), local('HalvarBreit-Rg'),
+        url('./font/HalvarBreit-Rg.eot?#iefix') format('embedded-opentype'),
+        url('./font/HalvarBreit-Rg.woff2') format('woff2'),
+        url('./font/HalvarBreit-Rg.woff') format('woff'),
+        url('./font/HalvarBreit-Rg.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+
+@font-face {
+    font-family: 'FS Elliot Pro';
+    src: url('./font2/FSElliotPro.eot');
+    src: local('FS Elliot Pro'), local('FSElliotPro'),
+        url('./font2/FSElliotPro.eot?#iefix') format('embedded-opentype'),
+        url('./font2/FSElliotPro.woff2') format('woff2'),
+        url('./font2/FSElliotPro.woff') format('woff'),
+        url('./font2/FSElliotPro.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Halvar Breit Blk';
+    src: url('./font/HalvarBreit-BlkSlanted.eot');
+    src: local('Halvar Breitschrift Black Slanted'), local('HalvarBreit-BlkSlanted'),
+        url('./font/HalvarBreit-BlkSlanted.eot?#iefix') format('embedded-opentype'),
+        url('./font/HalvarBreit-BlkSlanted.woff2') format('woff2'),
+        url('./font/HalvarBreit-BlkSlanted.woff') format('woff'),
+        url('./font/HalvarBreit-BlkSlanted.ttf') format('truetype');
+    font-weight: 900;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Halvar Breit Blk';
+    src: url('./font/HalvarBreit-Blk.eot');
+    src: local('Halvar Breitschrift Black'), local('HalvarBreit-Blk'),
+        url('./font/HalvarBreit-Blk.eot?#iefix') format('embedded-opentype'),
+        url('./font/HalvarBreit-Blk.woff2') format('woff2'),
+        url('./font/HalvarBreit-Blk.woff') format('woff'),
+        url('./font/HalvarBreit-Blk.ttf') format('truetype');
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+body {
+    font-family: 'Halvar Breit Rg', sans-serif;
+    background-color: #0a0e1e;
+    color: white;
+    display: flex;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.game-container {
+    text-align: center;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: radial-gradient(50% 50% at 50% 50%, #151b2e 0, rgba(21, 27, 46, 0) 100%);
+    position: relative
+}
+
+.title-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    padding: 0;
+}
+
+.title {
+    color: #fff;
+    font-family: "Halvar Breit Blk", serif;
+    font-size: 18px;
+    font-style: italic;
+    font-weight: 900;
+    letter-spacing: -.5px;
+    line-height: 21px;
+    text-transform: uppercase;
+}
+
+.grid-container {
+    background-color: #0a0f1d;
+    background-image: url(https://coin-flip-app-ts.production.k8s.gamedev-tech.cc/static/media/cellsFrame.40eb57f7e28f2ca52ad4.png);
+    background-position: 50%;
+    background-repeat: no-repeat;
+    background-size: auto;
+    border-radius: 25px;
+    box-shadow: 0 -2px 20px rgba(42, 49, 69, .4), 0 4px 54px rgba(42, 49, 69, .2);
+    display: grid;
+    align-items: center;
+    justify-items: center;
+    grid-template-columns: repeat(5, 66px);
+    grid-template-rows: repeat(5, 66px);
+    overflow: hidden;
+    padding: 10px;
+}
+
+.grid-tile {
+    width: 56px;
+    height: 56px;
+    cursor: pointer;
+    transition: transform 0.2s, opacity 0.5s ease;
+}
+
+.grid-tile:hover {
+    transform: scale(1.1);
+}
+
+.game-container::before {
+    background-image: url(https://coin-flip-app-ts.production.k8s.gamedev-tech.cc/static/media/particles.e53a48ca4d5fff68142d.svg);
+    background-size: 89px 69px;
+    content: "";
+    height: 69px;
+    position: absolute;
+    width: 89px;
+    z-index: -1;
+    left: -25px;
+    top: 15%;
+    -webkit-transform: rotate(-54deg);
+    transform: rotate(-54deg);
+}
+
+.game-container::after {
+    background-image: url(https://coin-flip-app-ts.production.k8s.gamedev-tech.cc/static/media/particles.e53a48ca4d5fff68142d.svg);
+    background-size: 89px 69px;
+    content: "";
+    height: 69px;
+    position: absolute;
+    width: 89px;
+    z-index: -1;
+    right: 25px;
+    top: 65%;
+    -webkit-transform: scaleY(-1);
+    transform: scaleY(-1);
+}
+
+.controls {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    margin-top: 20px;
+    background: #151b2e;
+    border-radius: 1rem;
+    height: 60px;
+    gap: 15px;
+    padding: 0.5rem 1rem;
+    justify-content: space-between;
+    margin-top: 30px;
+}
+
+.trap-selector {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: rgb(10 15 30 / 1);
+    /* Background color */
+    border-radius: 10px;
+    /* Rounded corners */
+    padding: 5px 10px;
+    /* Padding inside the selector */
+    width: 100%;
+}
+
+.trap-button {
+    background: none;
+    /* Remove default button styles */
+    border: none;
+    cursor: pointer;
+    display: flex;
+    /* Center the SVG inside */
+    align-items: center;
+    padding: 0;
+    margin: 0 10px;
+    /* Space between the buttons and the number */
+}
+
+.left {
+    transform: scaleX(-1);
+}
+
+.trap-display {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #b0b5d6;
+    /* Text color */
+}
+
+.trap-number {
+    font-family: 'Halvar Breit Md', sans-serif;
+    /* Font for the number */
+    font-size: 16px;
+    /* Font size for the number */
+    color: white;
+    /* Color for the number */
+    margin-bottom: 2px;
+    /* Space between number and label */
+}
+
+.trap-label {
+    font-family: 'FS Elliot Pro', sans-serif;
+    /* Font for the label */
+    font-size: 12px;
+    /* Font size for the label */
+    color: #b0b5d6;
+    /* Lighter color for the label */
+}
+
+.select-traps__arrow-icon {
+    width: 13px;
+    /* Icon size */
+    height: 20px;
+    fill: #8e93b8;
+    /* Fill color for the arrows */
+    transition: fill 0.3s;
+    /* Transition for hover effect */
+}
+
+.select-traps__arrow-icon:hover {
+    fill: #c0c5e0;
+    /* Lighter fill color on hover */
+}
+
+#play-button {
+    font-family: 'FS Elliot Pro', sans-serif;
+    padding: 12px 20px;
+    background: linear-gradient(93.73deg, #108de7, #0855c4);
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    color: white;
+    width: 100%;
+}
+
+#play-button:hover {
+    background: linear-gradient(93.73deg, #108de7, #0855c4);
+}
+
+/* Keyframes for fade-in and fade-out animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+        transform: scale(1);
+    }
+    to {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+}
+
+/* Modal styles */
+.modal {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(10, 14, 30, 1);
+    transition: opacity 0.3s ease;
+}
+
+.modal-content.show {
+    animation: fadeIn 0.3s forwards;
+}
+
+.modal.hide {
+    animation: fadeOut 0.3s forwards;
+}
+
+.modal-content {
+    display: flex;
+    opacity: 0;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    flex-direction: column;
+    background-color: #151b2e;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #2c3345;
+    width: 80%;
+    max-width: 400px;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    font-family: 'Halvar Breit Rg', sans-serif;
+    color: white;
+    transition: opacity 0.3s ease;
+}
+
+.modal-logo {
+    width: 80%;
+}
+
+.modal-logo img {
+    width: 40%;
+}
+
+.modal-title {
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    margin: 0;
+}
+
+.modal-title span {
+    line-height: 1;
+}
+
+#userIdInput {
+    padding: 10px;
+    width: calc(100% - 22px);
+    border: 1px solid #3c4459;
+    border-radius: 8px;
+    background-color: #0a0f1d;
+    color: #b0b5d6;
+    font-family: 'Halvar Breit Rg', sans-serif;
+}
+
+.modal-error {
+    font-family: 'FS Elliot Pro', sans-serif;
+    color: red;
+    font-size: 14px;
+    display: none;
+    margin: 0;
+    margin-bottom: -10px;
+}
+
+.modal-submit {
+    padding: 10px 20px;
+    width: 50%;
+    border: none;
+    background: linear-gradient(93.73deg, #108de7, #0855c4);
+    color: white;
+    border-radius: 8px;
+    cursor: pointer;
+    font-family: 'FS Elliot Pro', sans-serif;
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+.modal-submit:hover {
+    background: linear-gradient(93.73deg, #0855c4, #108de7);
+}
+
+.modal-links {
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 10px;
+    text-decoration: underline;
+    font-size: 12px;
+}
+
+.modal-links div {
+    cursor: pointer;
+}
+
+.modal-links div a {
+    color: #fff
+}
+
+.modal-links div a:active {
+    color: #fff
+}
+
+.modal-links div a:hover {
+    color: #fff
+}
+
+.modal-links div a:focus {
+    color: #fff
+}
+
+.modal::before {
+    background-image: url(https://coin-flip-app-ts.production.k8s.gamedev-tech.cc/static/media/particles.e53a48ca4d5fff68142d.svg);
+    background-size: 89px 69px;
+    content: "";
+    height: 69px;
+    position: absolute;
+    width: 89px;
+    z-index: -1;
+    left: -5px;
+    top: 20%;
+    -webkit-transform: rotate(-54deg);
+    transform: rotate(-54deg);
+}
+
+.modal::after {
+    background-image: url(https://coin-flip-app-ts.production.k8s.gamedev-tech.cc/static/media/particles.e53a48ca4d5fff68142d.svg);
+    background-size: 89px 69px;
+    content: "";
+    height: 69px;
+    position: absolute;
+    width: 89px;
+    z-index: -1;
+    left: 300px;
+    top: 75%;
+    -webkit-transform: scaleY(-1);
+    transform: scaleY(-1);
+}
+
+/* Modal styles */
+.find-it-modal {
+    display: flex;
+    position: fixed;
+    z-index: 1010;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.8);
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.find-it-modal.show {
+    animation: fadeIn 0.3s forwards;
+}
+
+.find-it-content {
+    background-color: #151b2e;
+    padding: 20px;
+    border-radius: 8px;
+    width: 80%;
+    max-width: 400px;
+    position: relative;
+    text-align: center;
+    border: 1px solid #2c3345;
+}
+
+.close-button {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    background: none;
+    border: none;
+    font-size: 30px;
+    cursor: pointer;
+    color: #0a6af0;
+}
+
+.find-it-img img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    margin-top: 20px;
+}
+
+.find-it-text {
+    font-size: 14px;
+}
+
+/* Utility class to hide elements */
+.hide {
+    animation: fadeOut 0.3s forwards;
+}
+
+
+.social-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 15px 0;
+    position: absolute;
+    bottom: 10px;
+    left: 0;
+    right: 0;
+}
+
+/* Individual social icon styles */
+.social-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    font-size: 40px;
+    text-decoration: none;
+    background: linear-gradient(93.73deg, #108de7, #0855c4);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent; 
+}
+
+.social-icon:hover {
+    transform: scale(1.1);
+    color: #fff;
+}

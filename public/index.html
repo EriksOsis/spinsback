@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1Win Casino Mines Mini-Game</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/1af607f219.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div class="game-container">
+        <div class="title-container">
+            <div class="logo-container">
+                <svg width="45" height="45" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M12.2752 2.2285C12.6529 1.48818 13.7108 1.48818 14.0885 2.2285L16.735 7.41481C16.8829 7.70466 17.1604 7.90633 17.4818 7.95743L23.2321 8.87169C24.0529 9.0022 24.3798 10.0082 23.7924 10.5963L19.6778 14.7159C19.4478 14.9461 19.3418 15.2724 19.3925 15.5938L20.2999 21.3452C20.4294 22.1662 19.5736 22.7879 18.8329 22.4111L13.6434 19.7708C13.3534 19.6232 13.0103 19.6232 12.7203 19.7708L7.53081 22.4111C6.79004 22.7879 5.93424 22.1662 6.06377 21.3452L6.97119 15.5938C7.0219 15.2724 6.91588 14.9461 6.68592 14.7159L2.57124 10.5963C1.98389 10.0082 2.31077 9.0022 3.1316 8.87169L8.88187 7.95743C9.20324 7.90633 9.48081 7.70466 9.62872 7.41481L12.2752 2.2285Z"
+                        fill="#C22A20"></path>
+                    <path
+                        d="M12.2752 2.2285C12.6529 1.48818 13.7108 1.48818 14.0885 2.2285L16.735 7.41481C16.8829 7.70466 17.1604 7.90633 17.4818 7.95743L23.2321 8.87169C24.0529 9.0022 24.3798 10.0082 23.7924 10.5963L19.6778 14.7159C19.4478 14.9461 19.3418 15.2724 19.3925 15.5938L20.2999 21.3452C20.4294 22.1662 19.5736 22.7879 18.8329 22.4111L13.6434 19.7708C13.3534 19.6232 13.0103 19.6232 12.7203 19.7708L7.53081 22.4111C6.79004 22.7879 5.93424 22.1662 6.06377 21.3452L6.97119 15.5938C7.0219 15.2724 6.91588 14.9461 6.68592 14.7159L2.57124 10.5963C1.98389 10.0082 2.31077 9.0022 3.1316 8.87169L8.88187 7.95743C9.20324 7.90633 9.48081 7.70466 9.62872 7.41481L12.2752 2.2285Z"
+                        fill="url(#paint0_linear_448_8887history)"></path>
+                    <path
+                        d="M12.2754 2.22809C12.6531 1.48777 13.711 1.48777 14.0887 2.22809L16.7352 7.4144C16.8831 7.70426 17.1607 7.90592 17.482 7.95702L23.2323 8.87128C24.0531 9.00179 24.38 10.0078 23.7927 10.5959L19.678 14.7155C19.448 14.9457 19.342 15.272 19.3927 15.5934L20.3001 21.3448C20.4297 22.1658 19.5739 22.7875 18.8331 22.4107L13.6436 19.7704C13.3536 19.6228 13.0105 19.6228 12.7205 19.7704L7.53102 22.4107C6.79025 22.7875 5.93445 22.1658 6.06398 21.3448L6.9714 15.5934C7.02211 15.272 6.91609 14.9457 6.68613 14.7155L2.57145 10.5959C1.9841 10.0078 2.31098 9.00179 3.13181 8.87128L8.88208 7.95702C9.20345 7.90592 9.48102 7.70426 9.62893 7.4144L12.2754 2.22809Z"
+                        fill="url(#paint1_linear_448_8887history)"></path>
+                    <path
+                        d="M12.2754 2.22809C12.6531 1.48777 13.711 1.48777 14.0887 2.22809L16.7352 7.4144C16.8831 7.70426 17.1607 7.90592 17.482 7.95702L23.2323 8.87128C24.0531 9.00179 24.38 10.0078 23.7927 10.5959L19.678 14.7155C19.448 14.9457 19.342 15.272 19.3927 15.5934L20.3001 21.3448C20.4297 22.1658 19.5739 22.7875 18.8331 22.4107L13.6436 19.7704C13.3536 19.6228 13.0105 19.6228 12.7205 19.7704L7.53102 22.4107C6.79025 22.7875 5.93445 22.1658 6.06398 21.3448L6.9714 15.5934C7.02211 15.272 6.91609 14.9457 6.68613 14.7155L2.57145 10.5959C1.9841 10.0078 2.31098 9.00179 3.13181 8.87128L8.88208 7.95702C9.20345 7.90592 9.48102 7.70426 9.62893 7.4144L12.2754 2.22809Z"
+                        fill="url(#paint2_radial_448_8887history)"></path>
+                    <path fill-rule="evenodd" clip-rule="evenodd"
+                        d="M16.433 7.56862L13.7865 2.38231C13.5347 1.88876 12.8294 1.88876 12.5776 2.38231L9.93115 7.56862C9.73395 7.95509 9.36385 8.22398 8.93536 8.29211L3.18509 9.20637C2.63787 9.29338 2.41995 9.96407 2.81151 10.3561L6.92619 14.4757C7.23281 14.7827 7.37417 15.2177 7.30655 15.6463L6.39914 21.3977C6.31278 21.945 6.88331 22.3595 7.37716 22.1082L12.5666 19.468C12.9533 19.2712 13.4108 19.2712 13.7975 19.468L18.9869 22.1082C19.4808 22.3595 20.0513 21.945 19.965 21.3977L19.0576 15.6463C18.9899 15.2177 19.1313 14.7827 19.4379 14.4757L23.5526 10.3561C23.9442 9.96407 23.7262 9.29338 23.179 9.20637L17.4287 8.29211C17.0003 8.22398 16.6302 7.95509 16.433 7.56862ZM14.0887 2.22809C13.711 1.48777 12.6531 1.48777 12.2754 2.22809L9.62893 7.4144C9.48102 7.70426 9.20345 7.90592 8.88208 7.95702L3.13181 8.87128C2.31098 9.00179 1.9841 10.0078 2.57145 10.5959L6.68613 14.7155C6.91609 14.9457 7.02211 15.272 6.9714 15.5934L6.06398 21.3448C5.93445 22.1658 6.79025 22.7875 7.53102 22.4107L12.7205 19.7704C13.0105 19.6228 13.3536 19.6228 13.6436 19.7704L18.8331 22.4107C19.5739 22.7875 20.4297 22.1658 20.3001 21.3448L19.3927 15.5934C19.342 15.272 19.448 14.9457 19.678 14.7155L23.7927 10.5959C24.38 10.0078 24.0531 9.00179 23.2323 8.87128L17.482 7.95702C17.1607 7.90592 16.8831 7.70426 16.7352 7.4144L14.0887 2.22809Z"
+                        fill="url(#paint3_linear_448_8887history)"></path>
+                    <path
+                        d="M12.741 7.3195C12.937 6.98075 13.4261 6.98075 13.6221 7.3195L15.1721 9.99846C15.2442 10.123 15.3656 10.2113 15.5063 10.2413L18.5331 10.8876C18.9159 10.9693 19.067 11.4344 18.8054 11.7255L16.7365 14.0275C16.6403 14.1345 16.594 14.2773 16.6089 14.4204L16.9296 17.4988C16.9701 17.8881 16.5745 18.1755 16.2168 18.0167L13.3882 16.7604C13.2566 16.702 13.1065 16.702 12.975 16.7604L10.1464 18.0167C9.7887 18.1755 9.39305 17.8881 9.4336 17.4988L9.75428 14.4204C9.7692 14.2773 9.72281 14.1345 9.62661 14.0275L7.55775 11.7255C7.29613 11.4344 7.44726 10.9693 7.83001 10.8876L10.8568 10.2413C10.9976 10.2113 11.119 10.123 11.1911 9.99846L12.741 7.3195Z"
+                        fill="url(#paint4_linear_448_8887history)"></path>
+                    <path
+                        d="M19.6431 11.3076C13.5027 17.1102 8.01855 14.5437 6.04404 12.5351C3.04056 8.07161 9.63153 11.6424 15.4716 10.0802C20.1437 8.83037 20.1993 10.3777 19.6431 11.3076Z"
+                        fill="url(#paint5_linear_448_8887history)"></path>
+                    <path fill-rule="evenodd" clip-rule="evenodd"
+                        d="M12.486 3.38311C12.6114 3.44656 12.6616 3.59966 12.5981 3.72506L11.8786 5.14712C11.8152 5.27252 11.6621 5.32275 11.5367 5.2593C11.4113 5.19585 11.3611 5.04275 11.4245 4.91735L12.144 3.49529C12.2075 3.36989 12.3606 3.31966 12.486 3.38311Z"
+                        fill="#F9BE76"></path>
+                    <circle cx="3.68131" cy="9.52742" r="0.254474" fill="#F9BE76"></circle>
+                    <circle cx="11.3155" cy="5.62557" r="0.254474" fill="#F9BE76"></circle>
+                    <path
+                        d="M10.7514 8.25268C8.82111 10.9869 9.51093 12.4755 10.0971 12.8781C11.8774 13.6816 15.1214 8.94033 15.3409 7.68564C15.5604 6.43095 13.1642 4.83492 10.7514 8.25268Z"
+                        fill="url(#paint6_linear_448_8887history)" fill-opacity="0.6"></path>
+                    <defs>
+                        <linearGradient id="paint0_linear_448_8887history" x1="13.1818" y1="0.45166" x2="18.8651"
+                            y2="22.4213" gradientUnits="userSpaceOnUse">
+                            <stop stop-color="#FBA416" stop-opacity="0"></stop>
+                            <stop offset="1" stop-color="#FDBB4E" stop-opacity="0.63"></stop>
+                        </linearGradient>
+                        <linearGradient id="paint1_linear_448_8887history" x1="13.182" y1="0.451259" x2="18.8653"
+                            y2="22.4209" gradientUnits="userSpaceOnUse">
+                            <stop stop-color="#FDBB4E" stop-opacity="0"></stop>
+                            <stop offset="1" stop-color="#FDBB4E" stop-opacity="0.63"></stop>
+                        </linearGradient>
+                        <radialGradient id="paint2_radial_448_8887history" cx="0" cy="0" r="1"
+                            gradientUnits="userSpaceOnUse"
+                            gradientTransform="translate(10.2132 9.86681) rotate(52.6712) scale(14.8278)">
+                            <stop offset="0.738765" stop-color="#9CB6DD" stop-opacity="0"></stop>
+                            <stop offset="0.89825" stop-color="#C6F1FF" stop-opacity="0.37"></stop>
+                            <stop offset="1" stop-color="#EFFBFF" stop-opacity="0.7"></stop>
+                        </radialGradient>
+                        <linearGradient id="paint3_linear_448_8887history" x1="20.3073" y1="17.4162" x2="8.6015"
+                            y2="6.81312" gradientUnits="userSpaceOnUse">
+                            <stop stop-color="#FEFFD3" stop-opacity="0.63"></stop>
+                            <stop offset="0.218803" stop-color="#FAFD4E" stop-opacity="0"></stop>
+                            <stop offset="0.491108" stop-color="#FDFF8B" stop-opacity="0.56"></stop>
+                            <stop offset="0.733041" stop-color="#F7F990"></stop>
+                            <stop offset="1" stop-color="white" stop-opacity="0"></stop>
+                            <stop offset="1" stop-color="#FEFFB7" stop-opacity="0"></stop>
+                        </linearGradient>
+                        <linearGradient id="paint4_linear_448_8887history" x1="13.1816" y1="6.55811" x2="13.0119"
+                            y2="17.8398" gradientUnits="userSpaceOnUse">
+                            <stop stop-color="#FEFFB0"></stop>
+                            <stop offset="0.277442" stop-color="white" stop-opacity="0.51"></stop>
+                            <stop offset="1" stop-color="#FAFD4E" stop-opacity="0.15"></stop>
+                        </linearGradient>
+                        <linearGradient id="paint5_linear_448_8887history" x1="12.635" y1="10.8612" x2="12.551"
+                            y2="14.8707" gradientUnits="userSpaceOnUse">
+                            <stop stop-color="#FAFD4E" stop-opacity="0"></stop>
+                            <stop offset="0.731853" stop-color="#FAFD4E" stop-opacity="0.46"></stop>
+                        </linearGradient>
+                        <linearGradient id="paint6_linear_448_8887history" x1="11.5105" y1="8.61842" x2="13.7636"
+                            y2="10.7449" gradientUnits="userSpaceOnUse">
+                            <stop offset="0.223958" stop-color="#FAFD4E" stop-opacity="0.35"></stop>
+                            <stop offset="1" stop-color="#FAFD4E" stop-opacity="0"></stop>
+                        </linearGradient>
+                    </defs>
+                </svg>
+            </div>
+            <div class="title">
+                <h1>SpinsCasino</h1>
+            </div>
+        </div>
+        <div class="grid-container">
+            <!-- Dynamically generated grid will be inserted here -->
+        </div>
+        <div class="controls">
+            <button id="play-button">Play</button>
+            <div class="trap-selector">
+                <button class="trap-button left">
+                    <svg class="select-traps__arrow-icon select-traps__arrow-icon_prev" viewBox="0 0 13 20" fill="none"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M2.92616 20.0002L10.7906 12.082L12.8584 10.0001L10.7906 7.91821L2.92616 0L0.858398 2.0819L8.72287 10.0001L0.858398 17.9183L2.92616 20.0002Z">
+                        </path>
+                    </svg>
+                </button>
+                <div class="trap-display">
+                    <span class="trap-number">3</span>
+                    <span class="trap-label">traps</span>
+                </div>
+                <button class="trap-button right">
+                    <svg class="select-traps__arrow-icon" viewBox="0 0 13 20" fill="none"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M2.92616 20.0002L10.7906 12.082L12.8584 10.0001L10.7906 7.91821L2.92616 0L0.858398 2.0819L8.72287 10.0001L0.858398 17.9183L2.92616 20.0002Z">
+                        </path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </div>
+    <!-- User ID Input Modal -->
+    <div id="userModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-logo">
+                <img src="https://zafeminizm.ru/wp-content/uploads/2024/05/1winmines.png" alt="Mines Logo" />
+            </div>
+            <h2 class="modal-title">Enter Your <span><svg xmlns="http://www.w3.org/2000/svg" width="60" height="auto"
+                        viewBox="0 0 164 75" fill="none">
+                        <g clip-path="url(#clip0_1_4)">
+                            <path
+                                d="M30.0467 30.1774C30.873 26.2059 29.381 23.3593 26.7184 21.4998C24.2854 19.8699 21.2096 19.6403 17.9502 21.2473L4.40763 27.3538C1.01051 28.8919 -0.458512 32.8634 1.01051 36.1921C2.5484 39.5897 6.45049 41.0589 9.84761 39.5897L11.638 38.7632L8.72289 54.6034C7.89657 59.3783 10.9953 63.281 15.2187 64.1074C19.6947 64.9339 24.0558 61.9954 24.7903 57.5189L30.0467 30.1774Z"
+                                fill="url(#paint0_linear_1_4)" />
+                            <path
+                                d="M153.238 20.329C145.778 19.2501 138.25 23.6118 135.38 29.7642L135.862 27.0783C137.079 21.6376 134.807 20.1913 130.927 20.1913H125.901C121.126 20.1913 120.047 22.7854 119.474 25.7927L113.62 58.2535C113.138 60.4573 113.46 64.2681 117.752 64.2681H124.73C128.862 64.2681 129.665 61.0312 130.239 57.9321L133.062 42.3445C133.728 38.7862 134.279 37.0645 135.495 35.7559C137.354 33.6439 141.096 32.6797 143.69 34.7917C145.227 36.0773 145.801 38.2812 145.388 41.3803L142.565 58.2535C141.945 61.9954 143.529 64.2681 146.628 64.2681H153.605C157.576 64.2681 158.38 61.1919 158.954 57.9321L163.039 36.789C164.944 29.1673 162.259 21.6376 153.238 20.329Z"
+                                fill="url(#paint1_linear_1_4)" />
+                            <path
+                                d="M108.502 15.9673C112.939 15.9673 116.536 12.4008 116.536 8.00129C116.536 3.6018 112.939 0.0353165 108.502 0.0353165C104.065 0.0353165 100.468 3.6018 100.468 8.00129C100.468 12.4008 104.065 15.9673 108.502 15.9673Z"
+                                fill="url(#paint2_linear_1_4)" />
+                            <path
+                                d="M109.007 57.8862C108.433 61.2838 107.469 64.2222 103.498 64.2222H96.4512C93.0541 64.2222 91.8146 61.697 92.4802 58.3683L98.2645 25.7468C98.8384 22.2574 100.376 20.1454 104.692 20.1454H110.04C114.584 20.1454 115.709 22.3492 114.745 27.0324L109.007 57.8862Z"
+                                fill="url(#paint3_linear_1_4)" />
+                            <path
+                                d="M31.4698 20.1454C33.2602 22.2574 35.3719 24.8515 34.2931 31.1875L31.5387 46.0635L32.0207 58.001C32.1125 62.3168 34.2242 64.1763 37.782 64.1763H46.8716C49.6949 64.1763 50.9344 61.9725 52.0591 59.2406L58.9452 42.2756L59.6797 58.506C59.7715 62.0643 61.5389 64.2681 64.8672 64.2681H75.1733C78.0884 64.2681 79.3049 62.4775 80.6133 59.3324L93.8345 26.8717C95.2806 23.543 94.4083 20.2142 90.8276 20.2142H84.2399C81.8069 20.2142 80.1083 21.0407 79.1213 23.3823L70.1924 45.0993L69.3661 25.7009C69.2054 21.5687 67.2543 20.1913 64.8901 20.1913H58.1647C55.4792 20.1913 53.9413 21.2473 53.1379 23.2675L44.209 45.1911L43.3827 25.2188C43.2909 21.4769 42.0055 20.1913 38.9986 20.1913H33.2602H31.4698V20.1454Z"
+                                fill="url(#paint4_linear_1_4)" />
+                        </g>
+                        <defs>
+                            <linearGradient id="paint0_linear_1_4" x1="15.3517" y1="70.3176" x2="15.3517" y2="19.1202"
+                                gradientUnits="userSpaceOnUse">
+                                <stop stop-color="#0167CA" />
+                                <stop offset="1" stop-color="#38A8FA" />
+                            </linearGradient>
+                            <linearGradient id="paint1_linear_1_4" x1="138.558" y1="65.3916" x2="138.558" y2="19.053"
+                                gradientUnits="userSpaceOnUse">
+                                <stop stop-color="#C8C7C7" />
+                                <stop offset="0.0762789" stop-color="#D6D5D5" />
+                                <stop offset="0.216" stop-color="#E8E8E8" />
+                                <stop offset="0.3802" stop-color="#F5F5F5" />
+                                <stop offset="0.5898" stop-color="#FDFDFD" />
+                                <stop offset="1" stop-color="white" />
+                            </linearGradient>
+                            <linearGradient id="paint2_linear_1_4" x1="108.504" y1="20.0223" x2="108.504" y2="-2.73076"
+                                gradientUnits="userSpaceOnUse">
+                                <stop stop-color="#0167CA" />
+                                <stop offset="1" stop-color="#38A8FA" />
+                            </linearGradient>
+                            <linearGradient id="paint3_linear_1_4" x1="63.0184" y1="65.3891" x2="63.0184" y2="19.151"
+                                gradientUnits="userSpaceOnUse">
+                                <stop stop-color="#C8C7C7" />
+                                <stop offset="0.0762789" stop-color="#D6D5D5" />
+                                <stop offset="0.216" stop-color="#E8E8E8" />
+                                <stop offset="0.3802" stop-color="#F5F5F5" />
+                                <stop offset="0.5898" stop-color="#FDFDFD" />
+                                <stop offset="1" stop-color="white" />
+                            </linearGradient>
+                            <linearGradient id="paint4_linear_1_4" x1="63.0184" y1="65.3891" x2="63.0184" y2="19.151"
+                                gradientUnits="userSpaceOnUse">
+                                <stop stop-color="#C8C7C7" />
+                                <stop offset="0.0762789" stop-color="#D6D5D5" />
+                                <stop offset="0.216" stop-color="#E8E8E8" />
+                                <stop offset="0.3802" stop-color="#F5F5F5" />
+                                <stop offset="0.5898" stop-color="#FDFDFD" />
+                                <stop offset="1" stop-color="white" />
+                            </linearGradient>
+                            <clipPath id="clip0_1_4">
+                                <rect width="164" height="75" fill="white" />
+                            </clipPath>
+                        </defs>
+                    </svg></span> User ID</h2>
+            <input type="text" id="userIdInput" placeholder="Enter User ID">
+            <p class="modal-error"></p>
+            <button class="modal-submit">Start</button>
+            <div class="modal-links">
+                <div class="how-to-find">How to find it</div>
+                <div><a href="https://1wapi.com/reg-form-af">Create 1win account</a></div>
+            </div>
+        </div>
+        <div class="social-container">
+            <a href="instagram.com/spinscasino" class="social-icon instagram">
+                <i class="fa-brands fa-instagram"></i>
+            </a>
+            <a href="https://t.me/+ZLbigyF6iJ0xZTg0" class="social-icon telegram">
+                <i class="fa-brands fa-telegram"></i>
+            </a>
+        </div>
+
+        <!-- How to Find It Modal -->
+        <div id="findItModal" class="find-it-modal hide">
+            <div class="find-it-content">
+                <button class="close-button">&times;</button>
+                <div class="find-it-img">
+                    <img src="./2024-09-01 17.52.05.jpg" alt="How to find your User ID">
+                </div>
+                <p class="find-it-text">
+                    You can find your 1Win User ID in the profile section.<br/>Follow the instructions shown in the image above.
+                </p>
+            </div>
+        </div>
+    </div>
+    <script src="index.js"></script>
+</body>
+
+</html>
