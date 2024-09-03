@@ -16,7 +16,7 @@ app.post('/api/check-sub-id', async (req, res) => {
   const { userId } = req.body;  // Assuming userId is sent from the frontend
 
   const requestBody = {
-    range: { from: '2023-01-01', to: '2024-08-28', timezone: 'UTC' },
+    range: { from: '2023-01-01', to: new Date().toISOString().split('T')[0], timezone: 'UTC' },
     limit: 0,  // Retrieve all matching records
     offset: 0,
     columns: [
