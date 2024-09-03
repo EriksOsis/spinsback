@@ -23,7 +23,7 @@ const API_TOKEN = '450f8ba0b0de08b21e14be07dac1e1d3';
 const TELEGRAM_TOKEN = '7239055423:AAEnRjIEpc6PsKLE3iwAo2hZUqRsnVBkMcc'; // Replace with the token from BotFather
 
 // URL of the image you want to send with the welcome message
-const IMAGE_URL = './IMG_7135.JG'; // Replace with your image URL
+const IMAGE_URL = path.join(__dirname,'./IMG_7135.JG'); // Replace with your image URL
 
 // URL to open your Telegram mini-app
 const MINI_APP_URL = 'https://t.me/SpinsMines_bot?startapp=https://spinsmines.netlify.app'; // Replace with your mini-app deep link
