@@ -4,7 +4,7 @@ const bodyParser = require('body-parser');
 const fetch = (...args) => import('node-fetch').then(({ default: fetch }) => fetch(...args));
 
 const app = express();
-const PORT = 5000;
+const PORT = process.env.PORT || 5000;
 const corsOptions = {
     origin: 'https://spinsmines.netlify.app', // Replace with your Netlify domain
     methods: ['GET', 'POST'],
