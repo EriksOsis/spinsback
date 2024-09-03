@@ -5,6 +5,7 @@ const fetch = (...args) => import('node-fetch').then(({ default: fetch }) => fet
 
 const app = express();
 const PORT = process.env.PORT || 5000;
+
 const corsOptions = {
     origin: 'https://spinsmines.netlify.app', // Replace with your Netlify domain
     methods: ['GET', 'POST'],
