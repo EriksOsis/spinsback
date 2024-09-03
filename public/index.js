@@ -107,7 +107,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const submitButton = document.querySelector('.modal-submit');
     const errorMessage = document.querySelector('.modal-error');
 
-    submitButton.addEventListener('click', hideModal);
+    submitButton.addEventListener('click', submitUserId);
 
     function showModal() {
         modal.classList.remove('hide');
@@ -128,7 +128,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const userId = document.getElementById('userIdInput').value;
         if (userId) {
             try {
-                const response = await fetch('http://localhost:5000/api/check-sub-id', {
+                const response = await fetch('https://spinsmines-b00e47957dce.herokuapp.com//api/check-sub-id', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',

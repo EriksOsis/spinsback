@@ -6,18 +6,25 @@ const fetch = (...args) => import('node-fetch').then(({ default: fetch }) => fet
 const app = express();
 const PORT = "5000";
 
-app.use(cors());
+// Configure CORS to allow requests only from your Netlify frontend
+const corsOptions = {
+  origin: 'https://spinsmines.netlify.app', // Allow only your Netlify frontend
+  methods: ['GET', 'POST'], // Allow specific methods
+  credentials: true, // Allow credentials if needed
+};
+
+app.use(cors(corsOptions)); // Use CORS with specific options
 app.use(bodyParser.json());
 
 const API_URL = 'http://139.59.72.61/admin_api/v1/conversions/log';
 const API_TOKEN = '450f8ba0b0de08b21e14be07dac1e1d3';
 
 app.post('/api/check-sub-id', async (req, res) => {
-  const { userId } = req.body;  // Assuming userId is sent from the frontend
+  const { userId } = req.body; // Assuming userId is sent from the frontend
 
   const requestBody = {
     range: { from: '2023-01-01', to: new Date().toISOString().split('T')[0], timezone: 'UTC' },
-    limit: 0,  // Retrieve all matching records
+    limit: 0, // Retrieve all matching records
     offset: 0,
     columns: [
       "sub_id",
