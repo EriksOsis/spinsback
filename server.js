@@ -22,16 +22,35 @@ const API_TOKEN = '450f8ba0b0de08b21e14be07dac1e1d3';
 // Telegram Bot Token (Replace with your bot's token)
 const TELEGRAM_TOKEN = '7239055423:AAEnRjIEpc6PsKLE3iwAo2hZUqRsnVBkMcc'; // Replace with the token from BotFather
 
+// URL of the image you want to send with the welcome message
+const IMAGE_URL = './IMG_7135.JG'; // Replace with your image URL
+
+// URL to open your Telegram mini-app
+const MINI_APP_URL = 'https://t.me/your_bot?startapp=https://spinsmines.netlify.app'; // Replace with your mini-app deep link
+
 // Initialize the Telegram bot
 const bot = new TelegramBot(TELEGRAM_TOKEN, { polling: true });
 
-// Listen for the /start command and send a welcome message
+// Listen for the /start command and send a welcome message with an image and button
 bot.onText(/\/start/, (msg) => {
   const chatId = msg.chat.id;
-  const welcomeMessage = `Welcome to The SpinsCasino Mines Bot!🤖 To start using our bot press the "💣Start Mines⭐️" button👇`;
 
-  // Send a welcome message to the user
-  bot.sendMessage(chatId, welcomeMessage);
+  // Send an image with a caption and a button to open the mini-app
+  bot.sendPhoto(chatId, IMAGE_URL, {
+    caption: `Welcome to The SpinsCasino Mines Bot!🤖\nPress "PLAY NOW" to start playing!`,
+    reply_markup: {
+      inline_keyboard: [
+        [
+          {
+            text: 'PLAY NOW',
+            url: MINI_APP_URL,
+          },
+        ],
+      ],
+    },
+  }).catch((error) => {
+    console.error('Error sending photo:', error);
+  });
 });
 
 app.post('/api/check-sub-id', async (req, res) => {
@@ -85,9 +104,8 @@ app.post('/api/check-sub-id', async (req, res) => {
 
     // Check if conversions are found and respond accordingly
     if (data.rows && data.rows.length > 0) {
-      const hasSale = data.rows.some(row => row.status === 'sale');
       console.log('Conversions found:', data.rows); // Log the conversions
-      res.json({ valid: true, hasSale, conversions: data.rows }); // Send back a positive result with the conversions
+      res.json({ valid: true, conversions: data.rows }); // Send back a positive result with the conversions
     } else {
       console.log('No conversions found for sub_id:', userId);
       res.json({ valid: false }); // Send back a negative result
