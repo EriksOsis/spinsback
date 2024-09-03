@@ -4,14 +4,11 @@ const bodyParser = require('body-parser');
 const fetch = (...args) => import('node-fetch').then(({ default: fetch }) => fetch(...args));
 
 const app = express();
-const PORT = "5000";
-
-// CORS options with specific origin allowed
+const PORT = 5000;
 const corsOptions = {
-  origin: 'https://spinsmines.netlify.app', // Your Netlify frontend URL
-  methods: ['GET', 'POST'],
-  allowedHeaders: ['Content-Type', 'Authorization', 'Api-Key'],
-  credentials: true, // Allow credentials if needed
+    origin: 'https://spinsmines.netlify.app', // Replace with your Netlify domain
+    methods: ['GET', 'POST'],
+    allowedHeaders: ['Content-Type'],
 };
 
 app.use(cors(corsOptions));
@@ -21,11 +18,11 @@ const API_URL = 'http://139.59.72.61/admin_api/v1/conversions/log';
 const API_TOKEN = '450f8ba0b0de08b21e14be07dac1e1d3';
 
 app.post('/api/check-sub-id', async (req, res) => {
-  const { userId } = req.body; // Assuming userId is sent from the frontend
+  const { userId } = req.body;  // Assuming userId is sent from the frontend
 
   const requestBody = {
-    range: { from: '2023-01-01', to: new Date().toISOString().split('T')[0], timezone: 'UTC' },
-    limit: 0, // Retrieve all matching records
+    range: { from: '2023-01-01', to: '2024-09-03', timezone: 'UTC' },
+    limit: 0,  // Retrieve all matching records
     offset: 0,
     columns: [
       "sub_id",
