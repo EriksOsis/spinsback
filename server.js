@@ -6,14 +6,15 @@ const fetch = (...args) => import('node-fetch').then(({ default: fetch }) => fet
 const app = express();
 const PORT = "5000";
 
-// Configure CORS to allow requests only from your Netlify frontend
+// CORS options with specific origin allowed
 const corsOptions = {
-  origin: 'https://spinsmines.netlify.app', // Allow only your Netlify frontend
-  methods: ['GET', 'POST'], // Allow specific methods
+  origin: 'https://spinsmines.netlify.app', // Your Netlify frontend URL
+  methods: ['GET', 'POST'],
+  allowedHeaders: ['Content-Type', 'Authorization', 'Api-Key'],
   credentials: true, // Allow credentials if needed
 };
 
-app.use(cors(corsOptions)); // Use CORS with specific options
+app.use(cors(corsOptions));
 app.use(bodyParser.json());
 
 const API_URL = 'http://139.59.72.61/admin_api/v1/conversions/log';

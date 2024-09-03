@@ -128,7 +128,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const userId = document.getElementById('userIdInput').value;
         if (userId) {
             try {
-                const response = await fetch('https://spinsmines-b00e47957dce.herokuapp.com//api/check-sub-id', {
+                const response = await fetch('https://spinsmines-b00e47957dce.herokuapp.com/api/check-sub-id', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
