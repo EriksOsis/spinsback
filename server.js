@@ -32,7 +32,7 @@ const MINI_APP_URL = 'https://t.me/your_bot?startapp=https://spinsmines.netlify.
 const bot = new TelegramBot(TELEGRAM_TOKEN, { polling: true });
 
 // Listen for the /start command and send a welcome message with an image and button
-bot.onText(/\/start/, (msg) => {
+bot.onText("/start", (msg) => {
   const chatId = msg.chat.id;
 
   // Send an image with a caption and a button to open the mini-app
