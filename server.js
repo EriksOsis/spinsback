@@ -7,9 +7,9 @@ const app = express();
 const PORT = process.env.PORT || 5000;
 
 const corsOptions = {
-    origin: 'https://spinsmines.netlify.app', // Replace with your Netlify domain
-    methods: ['GET', 'POST'],
-    allowedHeaders: ['Content-Type'],
+  origin: 'https://spinsmines.netlify.app', // Replace with your Netlify domain
+  methods: ['GET', 'POST'],
+  allowedHeaders: ['Content-Type'],
 };
 
 app.use(cors(corsOptions));
@@ -21,8 +21,11 @@ const API_TOKEN = '450f8ba0b0de08b21e14be07dac1e1d3';
 app.post('/api/check-sub-id', async (req, res) => {
   const { userId } = req.body;  // Assuming userId is sent from the frontend
 
+  // Get today's date in the format YYYY-MM-DD
+  const today = new Date().toISOString().split('T')[0];
+
   const requestBody = {
-    range: { from: '2023-01-01', to: '2024-09-03', timezone: 'UTC' },
+    range: { from: '2023-01-01', to: today, timezone: 'UTC' },
     limit: 0,  // Retrieve all matching records
     offset: 0,
     columns: [
@@ -66,10 +69,15 @@ app.post('/api/check-sub-id', async (req, res) => {
     const data = await response.json();
     console.log('Conversion Data:', data); // Debug: Log the response data
 
-    // Check if conversions are found and respond accordingly
-    if (data.rows && data.rows.length > 0) {
-      console.log('Conversions found:', data.rows); // Log the conversions
-      res.json({ valid: true, conversions: data.rows }); // Send back a positive result with the conversions
+    // Check if conversions are found and have a "sale" status
+    const hasSaleStatus = data.rows?.some(row => row.status === 'sale');
+
+    if (data.rows && data.rows.length > 0 && hasSaleStatus) {
+      console.log('Conversions found with sale status:', data.rows); // Log the conversions with sale status
+      res.json({ valid: true, hasSale: true, conversions: data.rows }); // Send back a positive result with the conversions
+    } else if (data.rows && data.rows.length > 0) {
+      console.log('Conversions found without sale status:', data.rows);
+      res.json({ valid: true, hasSale: false, conversions: data.rows });
     } else {
       console.log('No conversions found for sub_id:', userId);
       res.json({ valid: false }); // Send back a negative result
