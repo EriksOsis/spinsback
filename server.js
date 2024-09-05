@@ -26,7 +26,7 @@ const TELEGRAM_TOKEN = '7239055423:AAEnRjIEpc6PsKLE3iwAo2hZUqRsnVBkMcc'; // Repl
 const IMAGE_URL = "https://imgur.com/a/u8Sij09"; // Replace with your image URL
 
 // URL to open your Telegram mini-app
-const MINI_APP_URL = 'https://spinsmines.netlify.app'; // Replace with your mini-app deep link
+const MINI_APP_URL = 't.me/SpinsMines_bot/spinsmines'; // Replace with your mini-app deep link
 
 // Initialize the Telegram bot
 const bot = new TelegramBot(TELEGRAM_TOKEN, { polling: true });
