@@ -25,40 +25,29 @@ const CHANNEL_ID = '-1002202684238'; // Replace with your channel ID or username
 const bot = new TelegramBot(TELEGRAM_TOKEN, { polling: true });
 
 // Function to search messages in the Telegram channel
-async function searchMessages(userId) {
-    let offset = 0;
-    const limit = 100; // Number of messages to fetch at a time (max is 100)
+async function fetchChannelMessages(userId) {
+    try {
+        const updates = await bot.getUpdates({
+            allowed_updates: ['channel_post', 'message'], // Ensure channel posts are included
+        });
 
-    while (true) {
-        try {
-            // Fetch messages from the channel using Telegram API
-            const messages = await bot.getChatHistory(CHANNEL_ID, {
-                offset,
-                limit,
-            });
+        // Extract messages specifically from the channel
+        const channelMessages = updates
+            .map(update => update.channel_post || update.message)
+            .filter(message => message && message.chat && message.chat.id.toString() === CHANNEL_ID);
 
-            // If no messages are found, break the loop
-            if (messages.length === 0) break;
+        // Search for the user ID in messages
+        const isUserIdValid = channelMessages.some(message => {
+            const text = message.text || '';
+            const match = text.split(':')[0]; // Extract the part before ':'
+            return match === userId; // Check if it matches the user ID
+        });
 
-            // Iterate over each message to find the matching User ID
-            for (const message of messages) {
-                if (message.text) {
-                    const [messageUserId] = message.text.split(':');
-                    if (messageUserId === userId) {
-                        return true; // User ID found
-                    }
-                }
-            }
-
-            // Update offset for the next batch of messages
-            offset += limit;
-        } catch (error) {
-            console.error('Error fetching messages:', error);
-            break;
-        }
+        return isUserIdValid;
+    } catch (error) {
+        console.error('Error fetching messages:', error);
+        return false;
     }
-
-    return false; // User ID not found
 }
 
 // Listen for the /start command and send a welcome message with an image and button
