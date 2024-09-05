@@ -27,21 +27,29 @@ const bot = new TelegramBot(TELEGRAM_TOKEN, { polling: true });
 // Function to search messages in the Telegram channel
 async function fetchChannelMessages(userId) {
     try {
+        // Fetch updates including channel posts
         const updates = await bot.getUpdates({
             allowed_updates: ['channel_post', 'message'], // Ensure channel posts are included
         });
+
+        console.log('Fetched updates:', updates); // Debug: Log all fetched updates
 
         // Extract messages specifically from the channel
         const channelMessages = updates
             .map(update => update.channel_post || update.message)
             .filter(message => message && message.chat && message.chat.id.toString() === CHANNEL_ID);
 
+        console.log('Channel messages:', channelMessages); // Debug: Log the filtered channel messages
+
         // Search for the user ID in messages
         const isUserIdValid = channelMessages.some(message => {
             const text = message.text || '';
             const match = text.split(':')[0]; // Extract the part before ':'
+            console.log(`Checking message: ${text} | Extracted ID: ${match}`); // Debug: Log each message check
             return match === userId; // Check if it matches the user ID
         });
+
+        console.log(`Is user ID ${userId} valid?`, isUserIdValid); // Debug: Log the result of the check
 
         return isUserIdValid;
     } catch (error) {
