@@ -19,7 +19,7 @@ app.use(bodyParser.json());
 const TELEGRAM_TOKEN = '7239055423:AAEnRjIEpc6PsKLE3iwAo2hZUqRsnVBkMcc'; // Replace with your bot token
 
 // Channel ID from which the bot will read messages
-const CHANNEL_ID = '-1002202684238'; // Replace with your channel ID or username
+const CHANNEL_ID = '-1002243158881'; // Replace with your channel ID or username
 
 // Initialize the Telegram bot
 const bot = new TelegramBot(TELEGRAM_TOKEN, { polling: true });
