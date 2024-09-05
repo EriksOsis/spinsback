@@ -78,7 +78,7 @@ app.post('/api/check-sub-id', async (req, res) => {
 
     try {
         // Search for the User ID in the channel messages
-        const isValid = await searchMessages(userId);
+        const isValid = await fetchChannelMessages(userId);
 
         if (isValid) {
             res.json({ valid: true });
