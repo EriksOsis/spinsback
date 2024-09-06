@@ -62,7 +62,7 @@ app.post('/api/check-sub-id', async (req, res) => {
         limit: 0, // Retrieve all matching records
         offset: 0,
         columns: [
-            'sub_id',
+            'sub_id_1',
             'status',
             'conversion_id',
             'sale_datetime',
@@ -70,14 +70,14 @@ app.post('/api/check-sub-id', async (req, res) => {
         ],
         filters: [
             {
-                name: 'sub_id',
+                name: 'sub_id_1',
                 operator: 'equals',
                 expression: userId, // Use the userId received from the frontend
             },
         ],
         sort: [
             {
-                name: 'sub_id',
+                name: 'sub_id_1',
                 order: 'ASC',
             },
         ],
