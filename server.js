@@ -64,6 +64,7 @@ bot.onText(/\/start/, (msg) => {
 // Function to forward messages from the channel to active users
 function forwardToActiveUsers(msg) {
     activeUsers.forEach((userId) => {
+        console.log(userId);
         // Forward the message to the active user
         bot.copyMessage(userId, msg.chat.id, msg.message_id)
             .catch((error) => console.error(`Failed to forward message to user ${userId}:`, error));
