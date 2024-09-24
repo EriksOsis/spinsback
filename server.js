@@ -73,6 +73,7 @@ function forwardToActiveUsers(msg) {
 
 // Listen for messages in the specified channel
 bot.on('message', (msg) => {
+    console.log(msg);
     // Only forward messages from the specified channel
     if (msg.chat && msg.chat.id.toString() === CHANNEL_ID) {
         console.log('New message in channel:', msg);
