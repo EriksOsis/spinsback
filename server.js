@@ -105,10 +105,21 @@ bot.on('message', async (msg) => {
 
     // Check if the admin is sending a message for broadcasting
     if (chatId === ADMIN_USER_ID && broadcastData[chatId] && broadcastData[chatId].step === 'waiting_for_message') {
-        // Save the message (this could include text, photos, videos, etc.)
+        // Save the message (this could include text, photos, videos, video notes, etc.)
         broadcastData[chatId] = { message: msg, step: 'confirming' };
 
-        // Send the message back with Approve and Decline buttons
+        // Send the message back to the admin user first
+        if (msg.text) {
+            await bot.sendMessage(chatId, msg.text, { reply_markup: msg.reply_markup });
+        } else if (msg.photo) {
+            await bot.sendPhoto(chatId, msg.photo[0].file_id, { caption: msg.caption, reply_markup: msg.reply_markup });
+        } else if (msg.video) {
+            await bot.sendVideo(chatId, msg.video.file_id, { caption: msg.caption, reply_markup: msg.reply_markup });
+        } else if (msg.video_note) {
+            await bot.sendVideoNote(chatId, msg.video_note.file_id);
+        }
+
+        // Send the confirmation message with Approve and Decline buttons
         bot.sendMessage(chatId, "Is this the message you want to broadcast?", {
             reply_markup: {
                 inline_keyboard: [
@@ -135,13 +146,14 @@ bot.on('callback_query', async (callbackQuery) => {
             // Broadcast the message in its exact format to all users
             userIds.forEach(userId => {
                 if (messageToBroadcast.text) {
-                    bot.sendMessage(userId, messageToBroadcast.text);
+                    bot.sendMessage(userId, messageToBroadcast.text, { reply_markup: messageToBroadcast.reply_markup });
                 } else if (messageToBroadcast.photo) {
-                    bot.sendPhoto(userId, messageToBroadcast.photo[0].file_id, { caption: messageToBroadcast.caption });
+                    bot.sendPhoto(userId, messageToBroadcast.photo[0].file_id, { caption: messageToBroadcast.caption, reply_markup: messageToBroadcast.reply_markup });
                 } else if (messageToBroadcast.video) {
-                    bot.sendVideo(userId, messageToBroadcast.video[0].file_id, { caption: messageToBroadcast.caption });
+                    bot.sendVideo(userId, messageToBroadcast.video.file_id, { caption: messageToBroadcast.caption, reply_markup: messageToBroadcast.reply_markup });
+                } else if (messageToBroadcast.video_note) {
+                    bot.sendVideoNote(userId, messageToBroadcast.video_note.file_id);
                 }
-                // Add more handlers for other media types (videos, audio, etc.) as needed
             });
 
             // Notify the admin that the message was broadcasted
