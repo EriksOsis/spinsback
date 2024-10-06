@@ -36,7 +36,7 @@ const MINI_APP_URL = 't.me/SpinsMines_bot/spinsmines'; // Replace with your actu
 const bot = new TelegramBot(TELEGRAM_TOKEN, { polling: true });
 
 // Admin User ID (Replace with your own Telegram User ID)
-const ADMIN_USER_ID = 926460821; // Replace with your own admin ID
+const ADMIN_USER_ID = 631028808; // Replace with your own admin ID
 
 // Firebase Initialization
 const serviceAccount = JSON.parse(process.env.FIREBASE_SERVICE_ACCOUNT);
