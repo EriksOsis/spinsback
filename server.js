@@ -1,5 +1,3 @@
-// 7239055423:AAEnRjIEpc6PsKLE3iwAo2hZUqRsnVBkMcc
-// -1002470251856
 const express = require('express');
 const cors = require('cors');
 const bodyParser = require('body-parser');
@@ -47,6 +45,8 @@ admin.initializeApp({
 });
 const db = admin.firestore(); // Firestore database instance
 
+// Store broadcast data temporarily
+let broadcastData = {};
 
 // Function to add a user to Firestore
 async function addUser(userId) {
@@ -87,88 +87,71 @@ bot.onText(/\/start/, async (msg) => {
     });
 });
 
-// Telegram Bot listener for the /broadcast command
-bot.onText(/\/broadcast (.+)/, async (msg, match) => {
+// Telegram Bot listener for the /broadcast command to start the process
+bot.onText(/\/broadcast$/, async (msg) => {
     const chatId = msg.chat.id;
-    const messageToBroadcast = match[1]; // Get the message to broadcast
 
-    if (chatId === ADMIN_USER_ID) { // Only the admin can broadcast
-        const userIds = await getAllUsers(); // Get all registered users
-        userIds.forEach(userId => {
-            bot.sendMessage(userId, messageToBroadcast).catch(error => {
-                console.error(`Error sending broadcast to ${userId}:`, error);
-            });
-        });
-        bot.sendMessage(chatId, "Message successfully broadcasted to all users.");
+    if (chatId === ADMIN_USER_ID) {
+        broadcastData[chatId] = { step: 'waiting_for_message' }; // Set the step to waiting for a message
+        bot.sendMessage(chatId, "Send me the message you wish to broadcast.");
     } else {
         bot.sendMessage(chatId, "You are not authorized to broadcast.");
     }
 });
 
-// API endpoint for checking sub_id
-app.post('/api/check-sub-id', async (req, res) => {
-    const { userId } = req.body; // Extract userId from the request body
-    const todayDate = new Date().toISOString().split('T')[0]; // Get today's date in YYYY-MM-DD format
+// Handle incoming messages to capture the broadcast message from the admin
+bot.on('message', async (msg) => {
+    const chatId = msg.chat.id;
 
-    // Request body for the external API
-    const requestBody = {
-        range: { from: '2023-01-01', to: todayDate, timezone: 'UTC' },
-        limit: 0, // Retrieve all matching records
-        offset: 0,
-        columns: [
-            'sub_id',
-            'status',
-            'conversion_id',
-            'sale_datetime',
-            'revenue',
-        ],
-        filters: [
-            {
-                name: 'sub_id',
-                operator: 'equals',
-                expression: userId, // Use the userId received from the frontend
-            },
-        ],
-        sort: [
-            {
-                name: 'sub_id',
-                order: 'ASC',
-            },
-        ],
-    };
+    // Check if the admin is sending a message for broadcasting
+    if (chatId === ADMIN_USER_ID && broadcastData[chatId] && broadcastData[chatId].step === 'waiting_for_message') {
+        // Save the message (this could include text, photos, videos, etc.)
+        broadcastData[chatId] = { message: msg, step: 'confirming' };
 
-    // API headers
-    const headers = {
-        'Content-Type': 'application/json',
-        'Api-Key': API_TOKEN, // API token for authentication
-    };
-
-    try {
-        // Make the API request
-        const response = await fetch(API_URL, {
-            method: 'POST',
-            headers,
-            body: JSON.stringify(requestBody), // Send request body as JSON
+        // Send the message back with Approve and Decline buttons
+        bot.sendMessage(chatId, "Is this the message you want to broadcast?", {
+            reply_markup: {
+                inline_keyboard: [
+                    [{ text: 'Approve✅', callback_data: 'approve_broadcast' }],
+                    [{ text: 'Decline❌', callback_data: 'decline_broadcast' }]
+                ]
+            }
         });
+    }
+});
 
-        if (!response.ok) {
-            return res.status(response.status).json({ error: `Failed to fetch data: ${response.statusText}` }); // Handle failed response
+// Handle the Approve/Decline callback actions
+bot.on('callback_query', async (callbackQuery) => {
+    const chatId = callbackQuery.message.chat.id;
+    const data = callbackQuery.data;
+
+    if (chatId === ADMIN_USER_ID && broadcastData[chatId]) {
+        if (data === 'approve_broadcast') {
+            const messageToBroadcast = broadcastData[chatId].message;
+
+            // Fetch all users to broadcast
+            const userIds = await getAllUsers();
+
+            // Broadcast the message in its exact format to all users
+            userIds.forEach(userId => {
+                if (messageToBroadcast.text) {
+                    bot.sendMessage(userId, messageToBroadcast.text);
+                } else if (messageToBroadcast.photo) {
+                    bot.sendPhoto(userId, messageToBroadcast.photo[0].file_id, { caption: messageToBroadcast.caption });
+                } else if (messageToBroadcast.video) {
+                    bot.sendVideo(userId, messageToBroadcast.video[0].file_id, { caption: messageToBroadcast.caption });
+                }
+                // Add more handlers for other media types (videos, audio, etc.) as needed
+            });
+
+            // Notify the admin that the message was broadcasted
+            bot.sendMessage(chatId, "Message successfully broadcasted to all users.");
+            delete broadcastData[chatId]; // Clear the data
+        } else if (data === 'decline_broadcast') {
+            // Notify the admin that the broadcast was cancelled
+            bot.sendMessage(chatId, "Broadcast cancelled. Send /broadcast to start again.");
+            delete broadcastData[chatId]; // Clear the data
         }
-
-        const data = await response.json(); // Parse the response JSON
-        console.log('Conversion Data:', data); // Debugging: Log the API response
-
-        // Check if any conversions were found and respond accordingly
-        if (data.rows && data.rows.length > 0) {
-            console.log('Conversions found:', data.rows); // Log found conversions
-            res.json({ valid: true, conversions: data.rows }); // Return the conversions
-        } else {
-            console.log('No conversions found for sub_id:', userId); // Log no conversions found
-            res.json({ valid: false }); // Return a negative result if no conversions
-        }
-    } catch (error) {
-        console.error('Error:', error.message); // Log errors
-        res.status(500).json({ error: 'Server error' }); // Return server error status
     }
 });
 
